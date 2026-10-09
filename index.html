@@ -198,7 +198,7 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 <img
   id="profilePhoto"
   class="portrait profile-photo"
-  src="/My_profile_aeseul/%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpeg"
+  src="./profile.jpg?v=2"
   alt="장애슬 프로필 사진"
   loading="eager"
   fetchpriority="high"
@@ -372,10 +372,8 @@ function closeModal(){
   if(!photo) return;
 
   const candidates = [
-    '/My_profile_aeseul/%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpeg',
-    './%EC%A6%9D%EB%AA%85%EC%82%AC%EC%A7%84.jpeg',
-    './증명사진.jpeg',
-    '/My_profile_aeseul/증명사진.jpeg'
+    './profile.jpg?v=2',
+    '/My_profile_aeseul/profile.jpg?v=2'
   ];
   let index = 0;
   photo.style.display = 'block';
@@ -394,7 +392,7 @@ function closeModal(){
     photo.style.display = 'none';
     if(fallback){
       fallback.style.display = 'grid';
-      fallback.innerHTML = '프로필 사진을 찾을 수 없습니다.<br><small>GitHub 저장소에서 증명사진.jpeg 파일이 index.html과 같은 위치에 있는지 확인해 주세요.</small>';
+      fallback.innerHTML = '프로필 사진을 찾을 수 없습니다.<br><small>GitHub 저장소에서 profile.jpg 파일이 index.html과 같은 위치에 있고, 실제 이미지 파일로 업로드되었는지 확인해 주세요.</small>';
     }
   });
 
