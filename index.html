@@ -165,7 +165,6 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
   border-radius:5px;
   background:#f1f4f1;
 }
-#profilePhotoFallback{position:absolute;inset:0;z-index:0;display:none}
 .portrait-wrap .portrait-label{z-index:2}
 @media(min-width:761px){
   .hero-grid{grid-template-columns:minmax(0, 1.35fr) minmax(220px, 300px);gap:clamp(30px,5vw,70px);align-items:center}
@@ -205,7 +204,6 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
   fetchpriority="high"
   decoding="async"
 >
-<div id="profilePhotoFallback" class="image-fallback portrait-fallback">프로필 사진을 불러오는 중…</div>
 <div class="portrait-label">JANG AE SEUL · PROFILE</div>
 </div></div><div class="hero-index">PORTFOLIO / 2026</div></section>
 
@@ -365,46 +363,11 @@ function closeModal(){
   img.src='';
 }
 
-// GitHub Pages profile-photo loader.
-// The image file must be committed beside index.html in the repository root.
-(function loadProfilePhoto(){
-  const photo = document.getElementById('profilePhoto');
-  const fallback = document.getElementById('profilePhotoFallback');
-  if(!photo) return;
-
-  // GitHub Pages is case-sensitive. Try the known filename in both
-  // repository-root URL forms, then common existing asset locations.
-  const candidates = [
-    './profile.jpg',
-    '/My_profile_aeseul/profile.jpg',
-    './PROFILE.jpg',
-    './assets/profile.jpg',
-    './assets/PROFILE.jpg'
-  ];
-  let index = 0;
-  photo.style.display = 'block';
-
-  photo.addEventListener('load', () => {
-    photo.style.display = 'block';
-    if(fallback) fallback.style.display = 'none';
-  });
-
-  photo.addEventListener('error', () => {
-    index += 1;
-    if(index < candidates.length){
-      photo.src = candidates[index];
-      return;
-    }
-    photo.style.display = 'none';
-    if(fallback){
-      fallback.style.display = 'grid';
-      fallback.innerHTML = '프로필 사진을 불러오지 못했습니다.<br><small>GitHub 저장소에 실제 사진 파일을 업로드하고 파일명과 대소문자, 위치를 확인해 주세요. 기본 경로: index.html과 같은 폴더의 profile.jpg</small>';
-    }
-  });
-
-  // Trigger retry logic even if the first URL fails before listener attachment.
-  photo.src = candidates[0];
-})();
+// Profile image: keep profile.jpg in the same folder as index.html.
+const profilePhoto = document.getElementById('profilePhoto');
+if (profilePhoto) {
+  profilePhoto.src = './profile.jpg';
+}
 
 </script>
 </body>
