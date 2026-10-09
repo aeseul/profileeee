@@ -66,11 +66,11 @@ h3{font-size:19px;line-height:1.35;letter-spacing:-.04em;margin-bottom:12px}p{co
 .info-card{padding:25px;min-height:190px}.card-no{color:var(--blue2);font-size:11px;letter-spacing:.16em;font-weight:800;margin-bottom:23px}
 .info-card p{font-size:13px;margin-bottom:0}.info-card h3{font-size:17px}.interest-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:17px}
 .tag{font-size:11px;padding:7px 10px;border:1px solid var(--line);border-radius:3px;color:#d5deec;background:rgba(255,255,255,.02)}
-.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.experience-card{padding:22px 18px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;min-height:220px}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.experience-card{padding:22px 18px;position:relative;overflow:hidden}
 .experience-card:hover{transform:translateY(-6px);border-color:rgba(22,136,255,.5)}.experience-card:before{content:"";position:absolute;top:0;left:0;width:34px;height:2px;background:var(--blue)}
-.experience-card.featured:before{width:34px;background:var(--blue)}
-.experience-card .duration{font-size:22px;font-weight:800;letter-spacing:-.05em;margin:12px 0 6px;color:white;line-height:1.25}
-.experience-card h3{font-size:15px;min-height:42px;margin:8px 0 6px;display:flex;align-items:flex-start}.experience-card p{font-size:12px;margin:0;color:var(--muted)}
+.experience-card.featured:before{width:100%;background:linear-gradient(90deg,var(--blue),var(--blue2))}
+.experience-card .duration{font-size:22px;font-weight:800;letter-spacing:-.05em;margin:12px 0 6px;color:white}
+.experience-card h3{font-size:15px;min-height:42px;margin-bottom:6px}.experience-card p{font-size:12px;margin:0}
 .badge-md{display:inline-block;padding:3px 7px;background:rgba(22,136,255,.2);border:1px solid rgba(22,136,255,.4);color:var(--blue2);border-radius:3px;font-size:10px;font-weight:700;margin-bottom:8px}
 .subsection{margin-top:56px}.subsection-title{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin-bottom:18px}.subsection-title h3{margin:0;font-size:22px}
 .activity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.activity{padding:22px;border-top:1px solid var(--blue);background:rgba(17,25,39,.62);border-radius:0 0 8px 8px;transition:transform .3s var(--ease)}
@@ -139,43 +139,42 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 }
 
 
-/* Hero profile photo: compact, balanced sizing */
+/* Hero profile photo: explicitly sized and eagerly loaded */
 .portrait-wrap{
   position:relative;
-  width:min(100%, 300px);
+  width:100%;
+  max-width:390px;
   aspect-ratio:4 / 5;
-  justify-self:center;
-  align-self:center;
+  justify-self:end;
   overflow:visible;
-  margin:10px auto 18px;
 }
-.portrait-wrap .profile-photo,
-#profilePhoto{
-  display:block;
+.portrait-wrap .profile-photo{
   position:relative;
   z-index:1;
+  display:block;
   width:100%;
   height:100%;
-  min-height:0;
-  aspect-ratio:4 / 5;
+  min-height:360px;
   object-fit:cover;
   object-position:center 20%;
   opacity:1;
   visibility:visible;
-  border-radius:5px;
   background:#f1f4f1;
 }
+.portrait-wrap .portrait-fallback{z-index:0}
+.portrait-wrap .portrait-label{z-index:2}
+@media(max-width:760px){
+  .portrait-wrap{justify-self:center;max-width:320px;width:82%}
+  .portrait-wrap .profile-photo{min-height:300px}
+}
+
+
+/* Reliable hero portrait frame */
+.portrait-wrap{width:100%;max-width:390px;aspect-ratio:4/5;position:relative;justify-self:end}
+#profilePhoto{display:block;width:100%;height:100%;min-height:360px;object-fit:cover;object-position:center 20%;position:relative;z-index:1;background:#f1f4f1}
 #profilePhotoFallback{position:absolute;inset:0;z-index:0;display:none}
 .portrait-wrap .portrait-label{z-index:2}
-@media(min-width:761px){
-  .hero-grid{grid-template-columns:minmax(0, 1.35fr) minmax(220px, 300px);gap:clamp(30px,5vw,70px);align-items:center}
-  .portrait-wrap{justify-self:end;width:clamp(230px,24vw,300px);margin:0 12px 0 0}
-}
-@media(max-width:760px){
-  .hero-grid{grid-template-columns:1fr;gap:24px}
-  .portrait-wrap{justify-self:center;width:min(68%,245px);max-width:245px;margin:8px auto 18px}
-  #profilePhoto{min-height:0}
-}
+@media(max-width:760px){.portrait-wrap{justify-self:center;width:82%;max-width:320px}#profilePhoto{min-height:300px}}
 
 </style>
 </head>
@@ -217,12 +216,13 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 <article class="info-card slide-up"><div class="card-no">03 / COLLABORATION</div><h3>신뢰를 만드는 분위기</h3><p>누구나 편하게 자신의 생각을 나눌 수 있는 분위기를 조성하고, 확실한 리더십과 책임감으로 협업 프로젝트에서 높은 신뢰도를 형성합니다.</p></article>
 </div></div></section>
 
-<section id="experience"><div class="wrap"><div class="section-head slide-up"><div><div class="kicker">Part 02 · Experience</div><h2>Work<br>Experience.</h2></div><p>다양한 리테일 현장에서 쌓아온 서비스 경험과 실무 적응력.</p></div>
+<section id="experience"><div class="wrap"><div class="section-head slide-up"><div><div class="kicker">Part 02 · Experience</div><h2>Work<br>Experience.</h2></div><p>스포츠 브랜드 MD 경험부터 리테일 현장까지 쌓아온 서비스 경험과 실무 적응력.</p></div>
 <div class="timeline stagger-parent">
-<article class="experience-card slide-up"><div class="card-no">01</div><h3>명륜진사갈비 마포성산점</h3><div class="duration">2년 1개월</div><p>아르바이트</p></article>
-<article class="experience-card slide-up"><div class="card-no">02</div><h3>고토히라우동</h3><div class="duration">1년 9개월</div><p>아르바이트</p></article>
-<article class="experience-card slide-up"><div class="card-no">03</div><h3>창비 카페</h3><div class="duration">1년 4개월</div><p>아르바이트</p></article>
-<article class="experience-card slide-up"><div class="card-no">04</div><h3>서경대학교 학술정보관</h3><div class="duration">4개월</div><p>아르바이트</p></article>
+<article class="experience-card featured slide-up"><span class="badge-md">BRAND MD</span><div class="card-no">01 / BRAND</div><h3>아크테릭스 신세계 타임스퀘어점</h3><div class="duration">3개월</div><p>단기 MD 근무</p></article>
+<article class="experience-card slide-up"><div class="card-no">02</div><h3>명륜진사갈비 마포성산점</h3><div class="duration">2년 1개월</div><p>아르바이트</p></article>
+<article class="experience-card slide-up"><div class="card-no">03</div><h3>고토히라우동</h3><div class="duration">1년 9개월</div><p>아르바이트</p></article>
+<article class="experience-card slide-up"><div class="card-no">04</div><h3>창비 카페</h3><div class="duration">1년 4개월</div><p>아르바이트</p></article>
+<article class="experience-card slide-up"><div class="card-no">05</div><h3>서경대학교 학술정보관</h3><div class="duration">4개월</div><p>아르바이트</p></article>
 </div>
 <div class="subsection slide-up"><div class="subsection-title"><h3>학력</h3><span class="small muted">EDUCATION</span></div><div class="activity"><div class="num">UNIVERSITY</div><h3>서경대학교</h3><p>스포츠앤테크놀로지전공 재학</p></div></div>
 </div></section>
@@ -235,7 +235,6 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 <article class="activity slide-up"><div class="num">04 / INDUSTRY VISIT</div><h3>SPARK · 푸마 기업 답사</h3><p>실제 스포츠 브랜드 마케팅 업무 관람 및 실무 과제 참관</p></article>
 <article class="activity slide-up"><div class="num">05 / STUDENT COUNCIL</div><h3>백석대학교 제1대 스포츠경영전공 학생회</h3><p>홍보국 부원 (콘텐츠 및 홍보 기획)</p></article>
 <article class="activity slide-up"><div class="num">06 / FIELD STAFF</div><h3>스포츠 이벤트 현장 활동</h3><p>동아일보 서울 마라톤 Staff<br>Liv Golf Korea Staff 운영 지원</p></article>
-<article class="activity slide-up"><div class="num">07 / BRAND MD</div><h3>아크테릭스 MD</h3><p>3개월 근무</p></article>
 </div>
 <div class="subsection slide-up"><div class="subsection-title"><h3>Sports Coaching</h3><span class="small muted">지도 경험</span></div><div class="coaching"><div><div class="role">WINNERS · SHINCHON</div><h3>위너스 체대입시 신촌점</h3><p>서경대반 1:1 지도 및 수험생 코칭 경험</p></div><div class="coach-symbol" aria-hidden="true">W</div></div></div>
 </div></section>
