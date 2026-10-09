@@ -199,7 +199,7 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 <img
   id="profilePhoto"
   class="portrait profile-photo"
-  src="./%EB%AA%AC%EC%B9%98%EC%B9%98.jpg"
+  src="./profile.jpg"
   alt="장애슬 프로필 사진"
   loading="eager"
   fetchpriority="high"
@@ -375,14 +375,11 @@ function closeModal(){
   // GitHub Pages is case-sensitive. Try the known filename in both
   // repository-root URL forms, then common existing asset locations.
   const candidates = [
-    './%EB%AA%AC%EC%B9%98%EC%B9%98.jpg',
-    '/My_profile_aeseul/%EB%AA%AC%EC%B9%98%EC%B9%98.jpg',
-    './몬치치.jpg',
-    './몬치치.JPG',
-    './assets/몬치치.jpg',
-    './assets/profile-photo.jpg',
-    './profile-photo.jpg',
-    './profile-photo.png'
+    './profile.jpg',
+    '/My_profile_aeseul/profile.jpg',
+    './PROFILE.jpg',
+    './assets/profile.jpg',
+    './assets/PROFILE.jpg'
   ];
   let index = 0;
   photo.style.display = 'block';
@@ -401,7 +398,7 @@ function closeModal(){
     photo.style.display = 'none';
     if(fallback){
       fallback.style.display = 'grid';
-      fallback.innerHTML = '프로필 사진을 불러오지 못했습니다.<br><small>GitHub 저장소에 실제 사진 파일을 업로드하고 파일명과 대소문자, 위치를 확인해 주세요. 기본 경로: index.html과 같은 폴더의 몬치치.jpg</small>';
+      fallback.innerHTML = '프로필 사진을 불러오지 못했습니다.<br><small>GitHub 저장소에 실제 사진 파일을 업로드하고 파일명과 대소문자, 위치를 확인해 주세요. 기본 경로: index.html과 같은 폴더의 profile.jpg</small>';
     }
   });
 
