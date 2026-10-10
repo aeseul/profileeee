@@ -198,7 +198,7 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 <img
   id="profilePhoto"
   class="portrait profile-photo"
-  src="./profile.jpg"
+  src="https://aeseul.github.io/profileeee/profile.jpg"
   alt="장애슬 프로필 사진"
   loading="eager"
   fetchpriority="high"
@@ -241,6 +241,7 @@ footer{padding:28px 0 38px}.footer-inner{display:flex;justify-content:space-betw
 <section id="projects"><div class="wrap">
 <div class="section-head slide-up"><div><div class="kicker">Part 03 · Projects</div><h2>Projects &<br>Practice.</h2></div>
 <p>스포츠산업 실무 과정과 프로구단 산학협력 프로젝트. 두 가지 핵심 경험을 각각의 상세 페이지에서 확인할 수 있습니다.</p></div>
+<!-- PROJECT DETAIL LINKS: Incheon United and FC Seoul are separate HTML pages -->
 <div class="featured-banners stagger-parent">
 <a class="project-banner slide-up" href="./incheon-project.html"><div><div class="card-no">FEATURED PAGE 01</div><h3>인천유나이티드<br>스포츠산업 실무 과정 ↗</h3><p>실무 과제 수행 과정, 담당 역할, 최우수상 및 수료 증빙</p></div><span class="btn-link">상세 페이지 보기 →</span></a>
 <a class="project-banner slide-up" href="./fcseoul-project.html"><div><div class="card-no">FEATURED PAGE 02</div><h3>FC서울<br>스포츠마케팅 산학협력 프로젝트 ↗</h3><p>홈경기 모객 프로젝트 운영, 관중 증대 전략 경쟁 PT, 결과 및 배운 점</p></div><span class="btn-link">상세 페이지 보기 →</span></a>
@@ -350,7 +351,13 @@ function closeModal(){
 // Profile image: keep profile.jpg in the same folder as index.html.
 const profilePhoto = document.getElementById('profilePhoto');
 if (profilePhoto) {
-  profilePhoto.src = './profile.jpg';
+  profilePhoto.src = 'https://aeseul.github.io/profileeee/profile.jpg';
+  profilePhoto.onerror = () => {
+    profilePhoto.removeAttribute('src');
+    profilePhoto.alt = '프로필 사진을 불러오지 못했습니다. profile.jpg 파일이 저장소 최상위에 있는지 확인해 주세요.';
+    profilePhoto.style.objectFit = 'contain';
+    profilePhoto.style.padding = '24px';
+  };
 }
 
 </script>
