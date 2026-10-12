@@ -95,9 +95,11 @@
     .hero-logo {
       width: 140px;
       height: auto;
+      max-height: 160px;
       display: block;
       position: relative;
       z-index: 1;
+      object-fit: contain;
       filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.6));
       transition: transform 0.3s ease;
     }
@@ -187,7 +189,8 @@
       </div>
       <!-- 오른쪽 누끼 로고 영역 -->
       <div class="hero-logo-wrap">
-        <img class="fcseoul-logo.jpeg" src="https://upload.wikimedia.org/wikipedia/en/c/c5/FC_Seoul_logo.svg" alt="fcseoul-logo.jpeg" loading="lazy">
+        <img class="hero-logo" src="./fcseoul-logo.jpeg" alt="FC서울 로고" loading="lazy"
+             onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/en/c/c5/FC_Seoul_logo.svg';">
       </div>
     </div>
     <section class="panel">
@@ -201,6 +204,12 @@
     </section>
     <section class="panel">
       <h2>프로젝트 자료</h2>
+      <div class="grid">
+        <figure class="media">
+          <a href="./fcseoul-logo.jpeg" target="_blank" rel="noopener">
+            <img src="./fcseoul-logo.jpeg" alt="FC서울 구단 엠블럼" loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.nextElementSibling.classList.add('visible');">
+          </a>
           <div class="image-error">이미지를 불러오지 못했습니다. GitHub 저장소에 <code>fcseoul-logo.jpeg</code> 파일이 있는지 확인해 주세요.</div>
           <figcaption>fcseoul-logo.jpeg</figcaption>
         </figure>
