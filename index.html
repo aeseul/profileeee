@@ -1,354 +1,1307 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080b12">
-<meta name="description" content="장애슬 | 스포츠앤테크놀로지전공 | 스포츠산업 꿈나무">
-<title>JANG AE SEUL — Sports Industry Portfolio</title>
-<style>
-:root{--bg:#080b12;--panel:#101622;--panel2:#131c2b;--ink:#f5f7fb;--muted:#a5afc1;--blue:#1688ff;--blue2:#4eb6ff;--line:rgba(180,202,236,.16);--max:1200px;--nav:76px;--ease:cubic-bezier(.2,.75,.25,1)}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav) + 22px)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.65;letter-spacing:-.025em}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 88% 4%,rgba(0,105,255,.15),transparent 32%),radial-gradient(ellipse at 5% 55%,rgba(0,105,255,.08),transparent 34%)}
-a{color:inherit;text-decoration:none}
-button{font:inherit}
-::selection{background:#1688ff;color:white}
-.progress{position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--blue),#6ed4ff);z-index:1200}
-header{height:var(--nav);position:fixed;z-index:1100;inset:0 0 auto;background:rgba(8,11,18,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-.nav-inner{width:min(var(--max),calc(100% - 48px));height:100%;margin:auto;display:flex;align-items:center;gap:28px}
-.wordmark{font-size:13px;font-weight:850;letter-spacing:.08em;white-space:nowrap}
-.wordmark small{display:block;color:var(--blue2);font-size:9px;letter-spacing:.2em;font-weight:700}
-.nav-links{margin-left:auto;display:flex;gap:22px;align-items:center}
-.nav-links a{font-size:11px;color:#bac5d6;white-space:nowrap;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:white}
-.nav-links a.active:after{content:"";display:block;width:100%;height:2px;margin-top:4px;background:var(--blue)}
-.menu-btn{display:none;background:transparent;color:white;border:1px solid var(--line);border-radius:999px;padding:8px 12px}
-main{padding-top:var(--nav)}
-.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
-section{padding:112px 0;border-bottom:1px solid var(--line);scroll-margin-top:calc(var(--nav) + 14px)}
-.kicker{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue2);font-weight:800}
-h1,h2,h3,p{margin-top:0}
-h1{font-size:clamp(54px,9.6vw,126px);line-height:.92;letter-spacing:-.085em;margin:25px 0 24px;font-weight:850}
-h2{font-size:clamp(34px,5.4vw,64px);line-height:1.05;letter-spacing:-.07em;margin:13px 0 20px}
-h3{font-size:19px;line-height:1.35;letter-spacing:-.04em;margin-bottom:12px}
-p{color:#c5cedc}
-.muted{color:var(--muted)}
-.blue{color:var(--blue2)}
-.small{font-size:12px}
-.hero{min-height:calc(100svh - var(--nav));display:flex;align-items:center;padding:80px 0 96px;position:relative;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:8vw}
-.hero h1 span{display:block;color:var(--blue);font-size:.46em;letter-spacing:.03em;margin-bottom:17px}
-.hero .tagline{font-size:clamp(17px,2vw,23px);max-width:610px;color:#dbe4f2;margin-bottom:28px}
-.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-.pill{border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:11px;color:#c5d2e4}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 17px;border-radius:5px;border:1px solid var(--line);font-size:12px;font-weight:750;transition:transform .25s var(--ease),background .25s,border-color .25s}
-.btn:hover{transform:translateY(-3px);border-color:var(--blue)}
-.btn.primary{background:var(--blue);border-color:var(--blue);color:white}
-.portrait-wrap{position:relative;max-width:390px;justify-self:end;width:100%;aspect-ratio: .78;isolation:isolate}
-.portrait-wrap:before{content:"";position:absolute;inset:-17px 18px 18px -17px;border:1px solid rgba(48,151,255,.75);z-index:-1}
-.portrait-wrap:after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;background:rgba(0,109,255,.24);filter:blur(35px);right:-38px;top:12%;z-index:-2}
-.portrait{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;filter:saturate(.88);background:#151d2a}
-.portrait-label{position:absolute;bottom:0;left:0;right:0;padding:30px 20px 17px;background:linear-gradient(transparent,rgba(3,7,14,.9));font-size:10px;letter-spacing:.15em;color:white}
-.hero-index{position:absolute;right:24px;bottom:26px;font-size:10px;letter-spacing:.18em;color:#60718b;writing-mode:vertical-rl}
-.section-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:40px;align-items:start;margin-bottom:48px}
-.section-head p{max-width:680px;margin:0}
-.intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.info-card,.project-card,.credential,.skill-card,.experience-card{background:linear-gradient(145deg,rgba(20,29,44,.9),rgba(12,17,27,.8));border:1px solid var(--line);border-radius:8px}
-.info-card{padding:25px;min-height:190px}
-.card-no{color:var(--blue2);font-size:11px;letter-spacing:.16em;font-weight:800;margin-bottom:23px}
-.info-card p{font-size:13px;margin-bottom:0}
-.info-card h3{font-size:17px}
-.interest-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:17px}
-.tag{font-size:11px;padding:7px 10px;border:1px solid var(--line);border-radius:3px;color:#d5deec}
-.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.experience-card{padding:22px 20px;position:relative;overflow:hidden}
-.experience-card:before{content:"";position:absolute;top:0;left:0;width:34px;height:2px;background:var(--blue)}
-.experience-card .duration{font-size:25px;font-weight:800;letter-spacing:-.06em;margin:12px 0 8px}
-.experience-card h3{font-size:15px;min-height:40px}
-.experience-card p{font-size:12px;margin:0}
-.subsection{margin-top:56px}
-.subsection-title{display:flex;justify-content:space-between;gap:20px;align-items:baseline;margin-bottom:18px}
-.subsection-title h3{margin:0;font-size:22px}
-.activity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.activity{padding:22px;border-top:1px solid var(--blue);background:rgba(17,25,39,.62)}
-.activity .num{font-size:11px;color:var(--blue2);letter-spacing:.16em}
-.activity h3{margin:15px 0 10px;font-size:16px}
-.activity p{font-size:12px;margin:0}
-.event-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.event-card{padding:25px;background:#0e1420;border:1px solid var(--line);border-radius:7px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
-.event-card h3{margin:10px 0}
-.event-card p{font-size:13px;margin-bottom:14px}
-.event-mark{width:48px;height:48px;border:1px solid rgba(22,136,255,.5);border-radius:50%;display:grid;place-items:center;color:var(--blue2);font-size:12px;font-weight:800}
-.role{font-size:11px;color:var(--blue2);letter-spacing:.05em}
-.learning{border-left:2px solid var(--blue);padding:1px 0 1px 17px;margin-top:20px}
-.learning p{font-size:12px;margin:0}
-.coaching{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:28px;border:1px solid var(--line);background:linear-gradient(110deg,#111a29,#0b1019);border-radius:8px}
-.coaching h3{font-size:22px;margin-bottom:7px}
-.coaching p{margin:0;font-size:13px}
-.coach-symbol{width:92px;height:92px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(22,136,255,.45);background:radial-gradient(circle,rgba(22,136,255,.23),rgba(22,136,255,.03));color:var(--blue2);font-weight:900;font-size:23px;letter-spacing:-.07em}
-.projects{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.project-card{padding:30px;position:relative;overflow:hidden}
-.project-card:after{content:"";position:absolute;right:-80px;top:-90px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(30,135,255,.22);box-shadow:0 0 0 24px rgba(30,135,255,.025),0 0 0 50px rgba(30,135,255,.02);pointer-events:none}
-.project-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:27px}
-.project-index{font-size:10px;letter-spacing:.18em;color:var(--blue2)}
-.project-card h3{font-size:25px;max-width:400px}
-.project-card .summary{font-size:13px;line-height:1.9}
-.project-card ul{padding-left:18px;color:#c5cedc;font-size:12px}
-.project-card li{margin:8px 0}
-.award{display:inline-flex;border:1px solid rgba(78,182,255,.4);color:var(--blue2);font-size:11px;padding:6px 10px;border-radius:3px;margin-top:8px}
-.project-reflection{border-top:1px solid var(--line);margin-top:22px;padding-top:18px}
-.project-reflection strong{display:block;font-size:11px;color:#eef4ff;margin-bottom:7px}
-.project-reflection p{font-size:12px;margin:0}
-.credentials{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.credential{padding:21px;min-height:120px}
-.credential .serial{font-size:10px;color:var(--blue2);letter-spacing:.15em}
-.credential h3{font-size:15px;margin:12px 0 5px}
-.credential p{font-size:11px;margin:0}
-.education-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.education-item{border-left:2px solid var(--blue);padding:4px 0 4px 16px}
-.education-item h3{font-size:14px;margin-bottom:6px}
-.education-item p{font-size:12px;margin:0}
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.skill-card{padding:25px}
-.skill-icon{width:40px;height:40px;border:1px solid rgba(22,136,255,.45);color:var(--blue2);display:grid;place-items:center;border-radius:6px;font-size:12px;font-weight:800;margin-bottom:25px}
-.skill-card h3{font-size:17px}
-.skill-card p{font-size:12px;margin-bottom:0}
-.levels{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-.levels span{font-size:10px;padding:5px 8px;background:rgba(22,136,255,.1);border:1px solid rgba(22,136,255,.2);border-radius:3px;color:#cfe8ff}
-.contact-panel{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding:clamp(25px,5vw,58px);background:linear-gradient(125deg,#0f1b2d,#10131c 65%);border:1px solid rgba(57,147,255,.35);border-radius:10px;position:relative;overflow:hidden}
-.contact-panel:after{content:"";position:absolute;width:300px;height:300px;right:-100px;bottom:-190px;border-radius:50%;background:rgba(0,112,255,.2);filter:blur(15px)}
-.contact-panel h2{font-size:clamp(36px,5vw,60px)}
-.contact-list{display:grid;gap:12px;position:relative;z-index:1}
-.contact-item{display:flex;justify-content:space-between;gap:15px;padding:14px 0;border-bottom:1px solid var(--line);font-size:12px}
-.contact-item span:first-child{color:var(--muted)}
-.contact-item a{overflow-wrap:anywhere}
-footer{padding:28px 0 38px}
-.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;color:#68758b;font-size:10px;letter-spacing:.1em}
-.back-top{border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:#c8d4e7}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-@media(max-width:900px){
- .nav-inner{width:calc(100% - 32px)}.nav-links{gap:14px}.nav-links a{font-size:10px}
- .hero-grid{gap:40px}.timeline{grid-template-columns:repeat(2,1fr)}.section-head{grid-template-columns:1fr;gap:12px}
- .intro-grid,.activity-grid{grid-template-columns:repeat(2,1fr)}.credentials{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:650px){
- :root{--nav:66px}.wrap{width:calc(100% - 36px)}.nav-inner{gap:12px}.wordmark{font-size:11px}.wordmark small{font-size:8px}
- .menu-btn{display:block;margin-left:auto}.nav-links{display:none;position:absolute;top:calc(var(--nav) - 1px);left:0;right:0;padding:12px 18px 18px;background:rgba(8,11,18,.97);border-bottom:1px solid var(--line);grid-template-columns:repeat(3,1fr);gap:0 12px}
- .nav-links.open{display:grid}.nav-links a{padding:12px 3px;font-size:12px}.nav-links a.active:after{margin-top:2px;width:28px}
- section{padding:78px 0}.hero{padding:58px 0 70px}.hero-grid{grid-template-columns:1fr;gap:35px}.hero h1{font-size:clamp(54px,16vw,86px)}
- .portrait-wrap{justify-self:start;width:min(76%,310px);margin:0 0 0 16px;aspect-ratio:.92}
- .hero-index{right:10px;bottom:16px}.hero .tagline{font-size:17px}
- .intro-grid,.activity-grid,.event-grid,.projects,.skills-grid,.contact-panel{grid-template-columns:1fr}
- .info-card{min-height:auto}.timeline{gap:9px}.experience-card{padding:17px}.experience-card .duration{font-size:22px}.experience-card h3{font-size:13px;min-height:0}
- .activity{padding:18px}.event-card{padding:20px}.project-card{padding:23px}.project-card h3{font-size:22px}
- .credentials,.education-list{grid-template-columns:1fr 1fr}.credential{padding:16px;min-height:115px}.credential h3{font-size:13px}
- .coaching{padding:22px}.coach-symbol{width:66px;height:66px;font-size:18px}
- .contact-panel{gap:20px}.contact-item{font-size:11px}.footer-inner{align-items:flex-start;flex-direction:column}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b12">
+  <meta name="description" content="장애슬 | 서경대학교 스포츠앤테크놀로지전공 | 스포츠산업 포트폴리오">
+  <title>장애슬 — 스포츠산업 포트폴리오</title>
+  <style>
+    :root {
+      --bg: #080b12;
+      --panel: #101622;
+      --ink: #f5f7fb;
+      --muted: #a5afc1;
+      --blue: #1688ff;
+      --blue2: #4eb6ff;
+      --cyan: #38bdf8;
+      --line: rgba(180, 202, 236, .2);
+      --site-max: 1100px;
+      --nav-height: 76px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      line-height: 1.65;
+      letter-spacing: -.02em;
+      overflow-x: hidden;
+      word-break: keep-all; /* 단어 단위 자연스러운 줄바꿈 */
+    }
+
+    /* 은은한 네온 오로라 배경 애니메이션 */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -20%;
+      pointer-events: none;
+      z-index: -1;
+      background: 
+        radial-gradient(circle at 85% 10%, rgba(22, 136, 255, 0.18), transparent 35%),
+        radial-gradient(circle at 10% 50%, rgba(56, 189, 248, 0.12), transparent 40%),
+        radial-gradient(circle at 70% 85%, rgba(0, 75, 200, 0.15), transparent 45%);
+      animation: auraPulse 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes auraPulse {
+      0% { transform: scale(1) translate(0, 0); opacity: 0.8; }
+      50% { transform: scale(1.05) translate(-10px, 15px); opacity: 1; }
+      100% { transform: scale(0.98) translate(15px, -10px); opacity: 0.85; }
+    }
+
+    /* 마우스 은은한 반응형 빛 글로우 */
+    .mouse-glow {
+      position: fixed;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(78, 182, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s ease, height 0.3s ease;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; }
+    ::selection { background: var(--blue); color: white; }
+
+    /* Header & Nav */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      z-index: 1000;
+      background: rgba(8, 11, 18, .85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(8, 11, 18, .96);
+      border-color: rgba(78, 182, 255, 0.3);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nav-inner {
+      width: min(var(--site-max), calc(100% - 48px));
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .wordmark {
+      font-size: 16px;
+      font-weight: 850;
+      letter-spacing: -.02em;
+    }
+    .wordmark small {
+      display: block;
+      color: var(--blue2);
+      font-size: 10px;
+      letter-spacing: .18em;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+    .wordmark:hover small {
+      color: var(--cyan);
+      text-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      position: relative;
+      padding: 4px 0;
+      transition: color .25s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      border-radius: 2px;
+      transition: width 0.3s var(--ease-out);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    main { padding-top: var(--nav-height); width: 100%; }
+    .wrap {
+      width: min(var(--site-max), calc(100% - 48px));
+      margin: 0 auto !important;
+    }
+    
+    section {
+      padding: 90px 0;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .kicker {
+      font-size: 12px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--blue2);
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: clamp(38px, 4.2vw, 56px);
+      line-height: 1.15;
+      letter-spacing: -.03em;
+      margin: 0 0 20px;
+      font-weight: 850;
+      word-break: keep-all;
+    }
+
+    .name-en {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      color: var(--blue2);
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      text-shadow: 0 0 12px rgba(78, 182, 255, 0.4);
+    }
+
+    h2 {
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -.03em;
+      margin: 0 0 12px;
+      word-break: keep-all;
+    }
+
+    h3 {
+      font-size: 18px;
+      letter-spacing: -.02em;
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-weight: 700;
+      word-break: keep-all;
+    }
+
+    p { 
+      color: #c5cedc; 
+      margin: 0 0 14px; 
+      font-size: 15px; 
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+    .muted { color: var(--muted); }
+    .blue { color: var(--blue2); }
+
+    /* 히어로 섹션 */
+    .hero {
+      padding: 70px 0;
+      min-height: calc(88vh - var(--nav-height));
+      display: flex;
+      align-items: center;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 270px;
+      align-items: center;
+      gap: 48px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .hero .tagline {
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: #dbe4f2;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      font-weight: 500;
+      word-break: keep-all;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #c5d2e4;
+      background: rgba(16, 22, 34, .7);
+      backdrop-filter: blur(10px);
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+    .pill:hover {
+      border-color: var(--blue2);
+      color: white;
+      box-shadow: 0 0 15px rgba(78, 182, 255, 0.4);
+      transform: translateY(-2px);
+    }
+    .hero-actions { display: flex; gap: 12px; }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      font-size: 14px;
+      font-weight: 750;
+      transition: all .35s var(--ease-out);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition: left 0.6s ease;
+    }
+    .btn:hover::before {
+      left: 100%;
+    }
+    .btn.primary { 
+      background: linear-gradient(135deg, var(--blue), #0052cc); 
+      border-color: var(--blue2); 
+      color: white; 
+      box-shadow: 0 4px 20px rgba(22,136,255,.35);
+    }
+    .btn:hover { 
+      transform: translateY(-3px) scale(1.02); 
+      box-shadow: 0 10px 25px rgba(22,136,255,.45); 
+    }
+
+    /* 프로필 3D 플로팅 효과 */
+    .portrait-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 270px;
+      justify-self: end;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1.5px solid rgba(78, 182, 255, 0.5);
+      background: #151d2a;
+      box-shadow: 
+        0 0 30px rgba(22, 136, 255, 0.3),
+        0 16px 36px rgba(0, 0, 0, 0.6);
+      transition: transform .5s var(--ease-out), box-shadow .5s var(--ease-out), border-color .5s ease;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    .portrait-wrap:hover {
+      transform: translateY(-8px) rotateY(-6deg) rotateX(4deg);
+      border-color: var(--cyan);
+      box-shadow: 
+        0 0 45px rgba(56, 189, 248, 0.5),
+        0 24px 48px rgba(0, 0, 0, 0.8);
+    }
+
+    .portrait {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: inherit;
+      object-fit: cover;
+      object-position: center 20%;
+      transition: transform 0.6s ease;
+    }
+    .portrait-wrap:hover .portrait {
+      transform: scale(1.05);
+    }
+
+    .portrait-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px 14px 12px;
+      background: linear-gradient(transparent, rgba(3, 7, 14, 0.95));
+      font-size: 10px;
+      letter-spacing: .15em;
+      color: white;
+      font-weight: 700;
+      pointer-events: none;
+    }
+
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 40px;
+      max-width: 850px;
+    }
+
+    .section-head p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: #c5cedc;
+      margin: 0;
+      word-break: keep-all;
+    }
+
+    /* 입체 카드 디자인 및 빛 흐름 효과 */
+    .card {
+      background: linear-gradient(145deg, rgba(20,29,44,.95), rgba(12,17,27,.85));
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .4s var(--ease-out), border-color .4s ease, box-shadow .4s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(78, 182, 255, 0.4), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      border-color: rgba(78, 182, 255, .6);
+      box-shadow: 
+        0 12px 30px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(22, 136, 255, 0.25);
+    }
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    /* ★ 아크테릭스 브랜드 디자인 카드 & 배경 로고 오버레이 ★ */
+    .card.brand-highlight {
+      background: linear-gradient(145deg, rgba(28, 43, 68, 0.95), rgba(13, 20, 32, 0.9));
+      border: 1.5px solid rgba(78, 182, 255, 0.5);
+      box-shadow: 0 0 25px rgba(22, 136, 255, 0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* 카드 하단 여백을 디자인적으로 가득 채워주는 배경 로고 */
+    .arcteryx-bg-logo {
+      position: absolute;
+      right: -10px;
+      bottom: -15px;
+      width: 220px;
+      height: 140px;
+      object-fit: contain;
+      opacity: 0.18;
+      filter: drop-shadow(0 0 12px rgba(78, 182, 255, 0.6)) brightness(1.2);
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease;
+      z-index: 1;
+      border-radius: 12px;
+    }
+
+    .card.brand-highlight:hover .arcteryx-bg-logo {
+      opacity: 0.35;
+      transform: scale(1.08) rotate(-3deg);
+      filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.8)) brightness(1.4);
+    }
+
+    .intro-grid, .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card-no {
+      color: var(--blue2);
+      font-size: 12px;
+      letter-spacing: .15em;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .interest-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .tag {
+      font-size: 12px;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: #e0e8f5;
+      background: rgba(255,255,255,.03);
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+    .tag:hover {
+      border-color: var(--blue2);
+      background: rgba(22, 136, 255, 0.15);
+      color: white;
+    }
+
+    /* 경력 그리드 */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .experience-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .experience-card::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      transform: scaleX(0.3);
+      transform-origin: left;
+      transition: transform 0.4s var(--ease-out);
+    }
+    .experience-card:hover::after {
+      transform: scaleX(1);
+    }
+    .duration {
+      font-size: 22px;
+      font-weight: 800;
+      color: white;
+      margin: 10px 0 4px;
+      text-shadow: 0 0 10px rgba(78, 182, 255, 0.3);
+    }
+
+    .subsection { margin-top: 56px; }
+    .subsection-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+    }
+
+    /* Part 03. 활동 필터 탭 & 정돈된 Grid */
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(16, 22, 34, 0.6);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--blue);
+      color: white;
+      border-color: var(--blue2);
+      box-shadow: 0 0 15px rgba(22, 136, 255, 0.4);
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .activity {
+      padding: 26px;
+      border-top: 3px solid var(--blue);
+      background: rgba(17, 25, 39, .75);
+      border-radius: 0 0 12px 12px;
+      backdrop-filter: blur(10px);
+      transition: transform .35s var(--ease-out), border-color .35s ease, box-shadow .35s ease, opacity 0.4s ease;
+    }
+    .activity:hover {
+      transform: translateY(-5px);
+      border-top-color: var(--cyan);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.2);
+    }
+    .activity.hidden {
+      display: none;
+    }
+
+    /* 3대 핵심 프로젝트 숏컷 패널 */
+    .project-shortcut-panel {
+      background: linear-gradient(135deg, rgba(22, 136, 255, 0.1), rgba(8, 11, 18, 0.8));
+      border: 1px solid rgba(78, 182, 255, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .shortcut-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      background: rgba(16, 22, 34, 0.8);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      transition: all 0.3s ease;
+    }
+    .shortcut-item:hover {
+      border-color: var(--cyan);
+      transform: translateY(-3px);
+    }
+
+    .featured-banners {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .project-banner {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #121c2d, #0b1019);
+      min-height: 250px;
+    }
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue2);
+      margin-top: 18px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .project-banner:hover .btn-link {
+      transform: translateX(6px);
+      color: var(--cyan);
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .education-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .education-item {
+      border-left: 3px solid var(--blue);
+      padding-left: 16px;
+      transition: border-color 0.3s ease;
+    }
+    .education-item:hover {
+      border-left-color: var(--cyan);
+    }
+
+    .levels { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .levels span {
+      font-size: 11px;
+      padding: 4px 8px;
+      background: rgba(22,136,255,.12);
+      border: 1px solid rgba(22,136,255,.25);
+      border-radius: 4px;
+      color: #d8ecff;
+      white-space: nowrap;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 48px;
+      background: linear-gradient(125deg, #0f1b2d, #10131c);
+      border: 1px solid rgba(57,147,255,.4);
+      border-radius: 16px;
+      box-shadow: 0 0 35px rgba(22, 136, 255, 0.2);
+    }
+    .contact-list { display: grid; gap: 14px; }
+    .contact-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+    .contact-item:hover {
+      border-color: var(--blue2);
+    }
+    .contact-item a {
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    .contact-item a:hover {
+      color: var(--cyan);
+      text-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+    }
+
+    footer {
+      padding: 32px 0;
+      color: #68758b;
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 스크롤 애니메이션 클래스 */
+    .reveal-unfold {
+      opacity: 0;
+      transform: perspective(1000px) rotateX(25deg) translateY(60px) scale(0.9);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+      will-change: opacity, transform;
+    }
+    .reveal-unfold.active {
+      opacity: 1;
+      transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+    }
+
+    .reveal-zoom {
+      opacity: 0;
+      transform: scale(0.85) translateY(30px);
+      transition: opacity 0.7s var(--ease-back), transform 0.7s var(--ease-back);
+      will-change: opacity, transform;
+    }
+    .reveal-zoom.active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    .reveal-slide-up {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+      will-change: opacity, transform;
+    }
+    .reveal-slide-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+
+    /* 반응형 레이아웃 */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .portrait-wrap { justify-self: center; margin-top: 10px; }
+      .experience-grid { grid-template-columns: 1fr; }
+      .intro-grid, .skills-grid, .featured-banners, .credentials-grid, .activity-grid, .project-shortcut-panel {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .timeline { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 680px) {
+      .wrap { width: calc(100% - 32px); }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0; right: 0;
+        background: rgba(8, 11, 18, .98);
+        flex-direction: column;
+        padding: 20px;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-links.open { display: flex; }
+      .menu-btn { display: block; }
+      .intro-grid, .skills-grid, .featured-banners, .credentials-grid, 
+      .activity-grid, .timeline, .education-list, .contact-panel, .project-shortcut-panel {
+        grid-template-columns: 1fr;
+      }
+      section { padding: 50px 0; }
+    }
+  </style>
 </head>
 <body>
-<div class="progress" id="progress" aria-hidden="true"></div>
-<header>
-  <nav class="nav-inner" aria-label="주요 메뉴">
-    <a class="wordmark" href="#home">JANG AE SEUL<small>SPORTS INDUSTRY PORTFOLIO</small></a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">MENU +</button>
-    <div class="nav-links" id="navLinks">
-      <a href="#about">소개</a><a href="#experience">이력</a><a href="#activities">활동</a><a href="#projects">프로젝트</a><a href="#credentials">자격·수상</a><a href="#skills">역량</a><a href="#contact">연락처</a>
+
+  <!-- 마우스 은은한 반응형 빛 글로우 -->
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <header id="siteHeader">
+    <div class="nav-inner">
+      <a class="wordmark" href="#home">장애슬<small>JANG AE SEUL</small></a>
+      <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기">MENU</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">소개</a>
+        <a href="#experience">학력·이력</a>
+        <a href="#activities">활동</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#credentials">자격·수상</a>
+        <a href="#skills">역량</a>
+        <a href="#contact">연락처</a>
+      </nav>
     </div>
-  </nav>
-</header>
-<main>
-<section class="hero" id="home">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <div class="kicker">Sports Industry · Planning · Marketing</div>
-      <h1><span>JANG AE SEUL</span>장애슬</h1>
-      <p class="tagline">생각을 행동으로 옮기며 스포츠산업의 기회를 직접 만들어가는 장애슬입니다.</p>
-      <div class="hero-meta"><span class="pill">서경대학교</span><span class="pill">스포츠앤테크놀로지전공</span><span class="pill">스포츠산업 꿈나무</span></div>
-      <div class="hero-actions"><a class="btn primary" href="#projects">프로젝트 보기 <span aria-hidden="true">↘</span></a><a class="btn" href="#contact">Contact</a></div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="reveal-slide-up">
+          <div class="kicker">Sports Industry · Planning · Marketing</div>
+          <h1>
+            <span class="name-en">JANG AE SEUL</span>
+            장애슬
+          </h1>
+          <p class="tagline">생각을 행동으로 옮기며 스포츠산업의 가치를 만들어가는 기획자 장애슬입니다.</p>
+          <div class="hero-meta">
+            <span class="pill">서경대학교</span>
+            <span class="pill">스포츠앤테크놀로지전공</span>
+            <span class="pill">스포츠기획 및 마케터</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">주요 프로젝트 보기 ↘</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+        </div>
+        <div class="portrait-wrap reveal-zoom delay-2">
+          <img class="portrait" src="./profile.jpg" alt="장애슬 프로필 사진" onerror="this.onerror=null; this.alt='profile.jpg 파일 확인 필요';">
+          <div class="portrait-label">JANG AE SEUL · PROFILE</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 01. 소개 -->
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head reveal-slide-up">
+          <div class="kicker">Part 01 · Introduction</div>
+          <h2>About <span class="blue">Ae Seul.</span></h2>
+          <p>스포츠마케팅·스포츠기획 분야의 전문 기획자 및 마케터로 성장하고자 합니다. 생각을 행동으로 옮기며 소통과 연결을 통해 가치를 만들어냅니다.</p>
+        </div>
+        <div class="intro-grid">
+          <article class="card reveal-unfold delay-1">
+            <div class="card-no">01 / INTEREST</div>
+            <h3>관심 분야</h3>
+            <div class="interest-list">
+              <span class="tag">스포츠산업</span>
+              <span class="tag">경영</span>
+              <span class="tag">마케팅</span>
+              <span class="tag">스포츠브랜드</span>
+              <span class="tag">스포츠대행사</span>
+              <span class="tag">기획팀 및 마케팅팀</span>
+            </div>
+          </article>
+          <article class="card reveal-unfold delay-2">
+            <div class="card-no">02 / STRENGTH</div>
+            <h3>소통과 연결</h3>
+            <p>사람들과 자연스럽게 소통하고 서로 다른 생각을 연결하는 능력을 갖추었습니다. 상대방의 이야기에 귀 기울이고 다양한 의견을 존중합니다.</p>
+          </article>
+          <article class="card reveal-unfold delay-3">
+            <div class="card-no">03 / COLLABORATION</div>
+            <h3>신뢰를 만드는 분위기</h3>
+            <p>누구나 편하게 자신의 생각을 나눌 수 있는 분위기를 조성하며, 높은 신뢰도를 형성합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 02. 학력 및 이력 -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head reveal-slide-up">
+          <div class="kicker">Part 02 · Experience & Education</div>
+          <h2>Work <span class="blue">Experience.</span></h2>
+          <p>실제 스포츠 브랜드 실무 경험과 서비스 현장에서 쌓아온 조직 적응력 및 분석 능력.</p>
+        </div>
+
+        <div class="experience-grid">
+          <!-- ★ 핵심 아크테릭스 브랜드 경험 카드 (+ 하단 로고 배경 워터마크 디자인) ★ -->
+          <article class="card brand-highlight reveal-unfold delay-1">
+            <div class="brand-content">
+              <div class="card-no">FEATURED BRAND EXPERIENCE</div>
+              <h3 style="font-size: 20px; color: white; margin-bottom: 4px;">아크테릭스 (Arc'teryx)</h3>
+              <p class="blue" style="font-weight: 700; margin-bottom: 12px;">스포츠 브랜드 MD · VMD 실무 경험 (단기 3개월 계약)</p>
+              <p style="font-size: 14px; line-height: 1.6;">
+                실제 스포츠 브랜드 현장을 직접 경험해보고자 도전한 3개월 계약직 근무. 데이터 기반의 실무 역량을 익혔습니다.
+              </p>
+              <div class="interest-list" style="margin-top: 18px;">
+                <span class="tag">MD · VMD 데이터 작업</span>
+                <span class="tag">예산 전산 처리</span>
+                <span class="tag">판매 및 매출 집계</span>
+                <span class="tag">성과 보고서 작성</span>
+              </div>
+            </div>
+
+            <!-- 하단 여백을 세련되게 채워주는 은은한 워터마크 로고 -->
+            <img class="arcteryx-bg-logo" src="./아크테릭스.jpeg" alt="아크테릭스 브랜드 로고" onerror="this.onerror=null; this.src='./아크테릭스.jpg';">
+          </article>
+
+          <!-- 아르바이트 경력 4종 -->
+          <div class="timeline">
+            <article class="card experience-card reveal-zoom delay-1">
+              <div class="card-no">01</div>
+              <h3>명륜진사갈비</h3>
+              <div class="duration">2년 1개월</div>
+              <p>아르바이트</p>
+            </article>
+            <article class="card experience-card reveal-zoom delay-2">
+              <div class="card-no">02</div>
+              <h3>고토히라우동</h3>
+              <div class="duration">1년 9개월</div>
+              <p>아르바이트</p>
+            </article>
+            <article class="card experience-card reveal-zoom delay-3">
+              <div class="card-no">03</div>
+              <h3>창비 카페</h3>
+              <div class="duration">1년 4개월</div>
+              <p>아르바이트</p>
+            </article>
+            <article class="card experience-card reveal-zoom delay-4">
+              <div class="card-no">04</div>
+              <h3>서경대 학술정보관</h3>
+              <div class="duration">4개월</div>
+              <p>아르바이트</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="subsection reveal-slide-up">
+          <div class="subsection-title">
+            <h3>학력 사항</h3>
+            <span class="muted">EDUCATION</span>
+          </div>
+          <div class="education-list">
+            <div class="education-item reveal-slide-up delay-1">
+              <h3>서경대학교</h3>
+              <p>스포츠앤테크놀로지전공 재학</p>
+            </div>
+            <div class="education-item reveal-slide-up delay-2">
+              <h3>백석대학교</h3>
+              <p>스포츠과학부 스포츠경영전공 자퇴</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 03. 주요 활동 -->
+    <section id="activities">
+      <div class="wrap">
+        <div class="section-head reveal-slide-up">
+          <div class="kicker">Part 03 · Activities</div>
+          <h2>관심을 활동으로 <span class="blue">연결하다.</span></h2>
+          <p>구단 산학협력, 기획 동아리, 스포츠 현장 봉사 및 지도 경험까지 다채로운 실무와 연계 활동을 쌓아왔습니다.</p>
+        </div>
+
+        <!-- 3대 메인 프로젝트 숏컷 -->
+        <div class="project-shortcut-panel reveal-slide-up">
+          <div class="shortcut-item">
+            <div>
+              <div class="info-label">PROJECT 01</div>
+              <h4 style="margin: 4px 0; color: white;">인천유나이티드 스포츠산업 실무</h4>
+              <p style="font-size: 13px; margin: 0; color: #a5afc1;">15주 과제 기획 & 최우수상 수상</p>
+            </div>
+            <a href="./incheon-project.html" style="font-size: 12px; color: var(--blue2); font-weight: 700; margin-top: 10px;">상세보기 →</a>
+          </div>
+          <div class="shortcut-item">
+            <div>
+              <div class="info-label">PROJECT 02</div>
+              <h4 style="margin: 4px 0; color: white;">FC서울 스포츠마케팅 산학협력</h4>
+              <p style="font-size: 13px; margin: 0; color: #a5afc1;">홈경기 관중 증대 전략 PT</p>
+            </div>
+            <a href="./fcseoul-project.html" style="font-size: 12px; color: var(--blue2); font-weight: 700; margin-top: 10px;">상세보기 →</a>
+          </div>
+          <div class="shortcut-item">
+            <div>
+              <div class="info-label">PROJECT 03</div>
+              <h4 style="margin: 4px 0; color: white;">SPARK 2기 청야체전 미디어 총괄</h4>
+              <p style="font-size: 13px; margin: 0; color: #a5afc1;">가이드북 제작 및 실시간 업로드</p>
+            </div>
+            <a href="./spark-project.html" style="font-size: 12px; color: var(--blue2); font-weight: 700; margin-top: 10px;">상세보기 →</a>
+          </div>
+        </div>
+
+        <!-- 카테고리 필터 버튼 -->
+        <div class="filter-bar reveal-slide-up">
+          <button class="filter-btn active" data-filter="all">전체보기</button>
+          <button class="filter-btn" data-filter="club">구단 · 산학 프로젝트</button>
+          <button class="filter-btn" data-filter="spark">동아리 · 메가 이벤트</button>
+          <button class="filter-btn" data-filter="field">현장 스태프 · 코칭</button>
+        </div>
+
+        <div class="activity-grid">
+          <article class="activity reveal-unfold delay-1" data-category="club">
+            <div class="card-no">01 / COMPETITION</div>
+            <h3>2025 캡스톤 디자인 경진대회</h3>
+            <p>한국산학기술협회 주관 참가 (‘땀으로 디자인되는 러닝T’)</p>
+          </article>
+
+          <article class="activity reveal-unfold delay-2" data-category="spark">
+            <div class="card-no">02 / CLUB · SPARK</div>
+            <h3>푸마(PUMA) 기업 답사 프로젝트</h3>
+            <p>스포츠 브랜드 실무 관람 및 실제 마케팅 내부 과제 해결 수행</p>
+          </article>
+
+          <article class="activity reveal-unfold delay-3" data-category="spark">
+            <div class="card-no">03 / CLUB · REFIT</div>
+            <h3>스포츠의학동아리 ‘리핏’ & 의무지원</h3>
+            <p>건국대 키네시오 연수 수료(2급) 후 청야체전 4일간 풋살/족구/농구 의무지원 활동</p>
+            <a href="./kine-project.html" style="font-size: 12px; color: var(--cyan); font-weight: 700; margin-top: 8px; display: inline-block;">연수 및 의무지원 상세 ↗</a>
+          </article>
+
+          <article class="activity reveal-unfold delay-1" data-category="spark">
+            <div class="card-no">04 / STUDENT COUNCIL</div>
+            <h3>백석대학교 스포츠경영전공 학생회</h3>
+            <p>제1대 학생회 홍보국 부원 (학과 콘텐츠 및 이벤트 홍보 기획)</p>
+          </article>
+
+          <article class="activity reveal-unfold delay-2" data-category="field">
+            <div class="card-no">05 / FIELD VOLUNTEER</div>
+            <h3>스포츠 이벤트 현장 스태프</h3>
+            <p>동아일보 서울 마라톤 Staff / LIV Golf Korea Staff 현장 운영 지원</p>
+          </article>
+
+          <article class="activity reveal-unfold delay-3" data-category="field">
+            <div class="card-no">06 / COACHING</div>
+            <h3>위너스 체대입시 신촌점</h3>
+            <p>서경대반 담당 1:1 맞춤 지도 및 입시 코치</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 04. 프로젝트 -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head reveal-slide-up">
+          <div class="kicker">Part 04 · Featured Projects</div>
+          <h2>Projects & <span class="blue">Practice.</span></h2>
+          <p>스포츠산업 과제와 구단 연계 프로젝트를 통해 자료 조사, 기획안 제작, 협업 및 결과 발표 과정을 완수한 핵심 프로젝트입니다.</p>
+        </div>
+        <div class="featured-banners">
+          <a class="card project-banner reveal-zoom delay-1" href="./incheon-project.html">
+            <div>
+              <div class="card-no">PROJECT 01</div>
+              <h3>인천유나이티드<br>스포츠산업 실무 과정 ↗</h3>
+              <p>15주간의 과제 기획, 전문가 피드백 반영, 흑백 PPT 제작 및 최우수상 수상 과정</p>
+            </div>
+            <span class="btn-link">상세 페이지 보기 →</span>
+          </a>
+          <a class="card project-banner reveal-zoom delay-2" href="./fcseoul-project.html">
+            <div>
+              <div class="card-no">PROJECT 02</div>
+              <h3>FC서울<br>스포츠마케팅 산학협력 프로젝트 ↗</h3>
+              <p>총괄 역할 수행, 홈경기 모객 비교 분석, 14개 대학 경쟁 PT 및 관중 증대 전략 발표</p>
+            </div>
+            <span class="btn-link">상세 페이지 보기 →</span>
+          </a>
+          <a class="card project-banner reveal-zoom delay-3" href="./spark-project.html">
+            <div>
+              <div class="card-no">PROJECT 03</div>
+              <h3>SPARK 2기<br>청야체전 메가 스포츠 이벤트 ↗</h3>
+              <p>기획/홍보/촬영 가이드라인 수립 및 실시간 경기 일정·MVP·라인업 콘텐츠 업로드</p>
+            </div>
+            <span class="btn-link">상세 페이지 보기 →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 05. 자격 및 수상 -->
+    <section id="credentials">
+      <div class="wrap">
+        <div class="section-head reveal-slide-up">
+          <div class="kicker">Part 05 · Certifications & Awards</div>
+          <h2>Credentials & <span class="blue">Learning.</span></h2>
+          <p>보유 자격증 및 전문 교육 연수, 인천유나이티드 실무 과정 최우수상 수상 기록.</p>
+        </div>
+        <div class="credentials-grid">
+          <article class="card reveal-unfold delay-1">
+            <div class="card-no">01 / CERTIFICATE</div>
+            <h3>알파인 스키 3급</h3>
+            <p>대한스키협회</p>
+          </article>
+          <article class="card reveal-unfold delay-2">
+            <div class="card-no">02 / CERTIFICATE</div>
+            <h3>마케팅실무능력</h3>
+            <p>문화체육관광부</p>
+          </article>
+          <article class="card reveal-unfold delay-3">
+            <div class="card-no">03 / CERTIFICATE</div>
+            <h3>스포츠이벤트기획자</h3>
+            <p>중소벤처기업부</p>
+          </article>
+          <article class="card reveal-unfold delay-1">
+            <div class="card-no">04 / CERTIFICATE</div>
+            <h3>골프 Peak 레벨1</h3>
+            <p>대한골프협회</p>
+          </article>
+          <article class="card reveal-unfold delay-2">
+            <div class="card-no">05 / CERTIFICATE</div>
+            <h3>대한스포츠 테이핑 전문가 2급</h3>
+            <p>대한트레이닝협회</p>
+          </article>
+          <article class="card reveal-unfold delay-3">
+            <div class="card-no">06 / CERTIFICATE</div>
+            <h3>정보기술자격 ITQ 단일 등급</h3>
+            <p>KPC자격</p>
+          </article>
+        </div>
+
+        <div class="subsection reveal-slide-up">
+          <div class="subsection-title">
+            <h3>교육·연수 이수 & 수상</h3>
+            <span class="muted">EDUCATION & AWARDS</span>
+          </div>
+          <div class="education-list">
+            <div class="education-item reveal-slide-up delay-1">
+              <h3>인천유나이티드 스포츠산업실무 최우수상</h3>
+              <p>최종 기획안 수록 및 우수 프로젝트 수상 (award.pdf / activity-certificate.pdf / certificate.pdf)</p>
+            </div>
+            <div class="education-item reveal-slide-up delay-2">
+              <h3>마케팅실무능력 & 스포츠이벤트기획자</h3>
+              <p>4개월 스포츠산업 실무 과제 수료</p>
+            </div>
+            <div class="education-item reveal-slide-up delay-3">
+              <h3>키네시오 스포츠 테이핑 연수 과정</h3>
+              <p>건국대학교 연수 수료, 대한스포츠 테이핑 전문가 2급 취득 및 청야체전 4일 의무지원 (kine-project.html 연동)</p>
+            </div>
+            <div class="education-item reveal-slide-up delay-4">
+              <h3>알파인 스키 3급</h3>
+              <p>2박 3일 실기 평가 후 수료</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Part 06. 역량 -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head reveal-slide-up">
+          <div class="kicker">Part 06 · Tools & Capabilities</div>
+          <h2>Capabilities.</h2>
+          <p>DESIGN · DOCUMENT · VIDEO · SPORTS DATA ANALYSIS</p>
+        </div>
+        <div class="skills-grid">
+          <article class="card reveal-zoom delay-1">
+            <div class="card-no">01 / DESIGN & DOCUMENT</div>
+            <h3>디자인 & 문서 작성</h3>
+            <p>캔바 · 미리캔버스 · PowerPoint · Word · 한글</p>
+            <p class="muted" style="margin-top:8px;">기획서 및 발표 자료 작성, 비주얼 문서 구성</p>
+            <div class="levels">
+              <span>PPT · 상</span>
+              <span>Word · 상</span>
+              <span>한글 · 상</span>
+            </div>
+          </article>
+          <article class="card reveal-zoom delay-2">
+            <div class="card-no">02 / VIDEO</div>
+            <h3>영상 편집</h3>
+            <p>블로(VLLO) · CapCut(캡컷)</p>
+            <p class="muted" style="margin-top:8px;">숏폼 콘텐츠 및 홍보 영상 편집</p>
+          </article>
+          <article class="card reveal-zoom delay-3">
+            <div class="card-no">03 / ANALYSIS</div>
+            <h3>데이터 및 동작 분석</h3>
+            <p>키네마틱 동작 분석</p>
+            <p class="muted" style="margin-top:8px;">스포츠 장비 활용 및 정밀 데이터 분석</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-panel reveal-zoom">
+          <div>
+            <div class="kicker">Thank you for your time</div>
+            <h2>Let’s connect.</h2>
+            <p>장애슬<br>서경대학교 스포츠앤테크놀로지전공</p>
+            <div class="muted" style="font-size: 13px;">스포츠산업 꿈나무 장애슬</div>
+          </div>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span>PHONE</span>
+              <a href="tel:01049183439">010-4918-3439</a>
+            </div>
+            <div class="contact-item">
+              <span>EMAIL</span>
+              <a href="mailto:aeseul0907@naver.com">aeseul0907@naver.com</a>
+            </div>
+            <div class="contact-item">
+              <span>INSTAGRAM</span>
+              <a href="https://www.instagram.com/lueseaea/" target="_blank" rel="noopener noreferrer">@lueseaea ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>장애슬 · SPORTS INDUSTRY PORTFOLIO</span>
+      <span>SEOKYEONG UNIVERSITY</span>
     </div>
-    <div class="portrait-wrap">
-      <img class="portrait" src="profile.jpg" alt="장애슬 프로필 사진">
-      <div class="portrait-label">JANG AE SEUL · PROFILE</div>
-    </div>
-  </div>
-  <div class="hero-index">PORTFOLIO / 2026</div>
-</section>
+  </footer>
 
-<section id="about">
- <div class="wrap">
-  <div class="section-head reveal"><div><div class="kicker">Part 01 · Introduction</div><h2>About<br><span class="blue">Ae Seul.</span></h2></div><p>스포츠산업 꿈나무 장애슬, 생각을 행동으로 옮기며 스포츠산업의 기회를 직접 만들어가고 있는 장애슬입니다. 사람들과 자연스럽게 소통하고 서로 다른 생각을 연결하는 강점을 바탕으로 스포츠마케팅과 스포츠기획 분야의 기획자 및 마케터를 희망합니다.</p></div>
-  <div class="intro-grid">
-   <article class="info-card reveal"><div class="card-no">01 / INTEREST</div><h3>관심 분야</h3><div class="interest-list"><span class="tag">스포츠산업</span><span class="tag">경영</span><span class="tag">마케팅</span><span class="tag">스포츠브랜드</span><span class="tag">스포츠대행사</span><span class="tag">기획팀 및 마케팅팀</span></div></article>
-   <article class="info-card reveal"><div class="card-no">02 / STRENGTH</div><h3>소통과 연결</h3><p>사람들과 자연스럽게 소통하고 서로 다른 생각을 연결합니다. 상대방의 이야기에 귀 기울이고 다양한 의견을 존중합니다.</p></article>
-   <article class="info-card reveal"><div class="card-no">03 / COLLABORATION</div><h3>신뢰를 만드는 분위기</h3><p>누구나 편하게 자신의 생각을 나눌 수 있는 분위기를 조성하고 높은 신뢰도를 형성하는 것을 강점으로 생각합니다.</p></article>
-  </div>
- </div>
-</section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. 헤더 스크롤 반응형
+      const siteHeader = document.getElementById('siteHeader');
+      const menuBtn = document.getElementById('menuBtn');
+      const navLinks = document.getElementById('navLinks');
+      const links = document.querySelectorAll('.nav-links a');
+      const sections = document.querySelectorAll('main section[id]');
 
-<section id="experience">
- <div class="wrap">
-  <div class="section-head reveal"><div><div class="kicker">Part 02 · Experience</div><h2>Work<br>Experience.</h2></div><p>다양한 근무 환경에서 쌓아온 서비스 경험과 조직 적응력.</p></div>
-  <div class="timeline">
-   <article class="experience-card reveal"><div class="card-no">01</div><h3>명륜진사갈비 마포성산점</h3><div class="duration">2년 1개월</div><p>아르바이트</p></article>
-   <article class="experience-card reveal"><div class="card-no">02</div><h3>고토히라우동</h3><div class="duration">1년 9개월</div><p>아르바이트</p></article>
-   <article class="experience-card reveal"><div class="card-no">03</div><h3>창비 카페</h3><div class="duration">1년 4개월</div><p>아르바이트</p></article>
-   <article class="experience-card reveal"><div class="card-no">04</div><h3>서경대학교 학술정보관</h3><div class="duration">4개월</div><p>아르바이트</p></article>
-  </div>
-  <div class="subsection reveal">
-   <div class="subsection-title"><h3>학력</h3><span class="small muted">EDUCATION</span></div>
-   <div class="activity"><div class="num">UNIVERSITY</div><h3>서경대학교</h3><p>스포츠앤테크놀로지전공</p></div>
-  </div>
- </div>
-</section>
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('open');
+        });
+      }
 
-<section id="activities">
- <div class="wrap">
-  <div class="section-head reveal"><div><div class="kicker">Clubs & University Activities</div><h2>관심을 활동으로<br><span class="blue">연결하다.</span></h2></div><p>동아리와 학생회, 스포츠 현장 및 지도 경험을 통해 스포츠와 사람, 프로젝트를 가까이에서 경험했습니다.</p></div>
-  <div class="activity-grid">
-   <article class="activity reveal"><div class="num">01 / CLUB</div><h3>스포츠의학동아리 ‘리핏’</h3><p>의무지원 활동 및 스포츠테이핑</p></article>
-   <article class="activity reveal"><div class="num">02 / COMPETITION</div><h3>한국산학기술협회</h3><p>2025 캡스톤 디자인 경진대회 참가_‘땀으로 디자인되는 러닝T’</p></article>
-   <article class="activity reveal"><div class="num">03 / CLUB</div><h3>스포츠산업 기획 동아리 ‘SPARK’</h3><p>FC서울 스포츠마케팅 산학협력 프로젝트 참가<br> 서경대학교 '청야체전' 콘텐츠 활동</p></article>
-   <article class="activity reveal"><div class="num">04 / INDUSTRY VISIT</div><h3>SPARK · 푸마 기업 답사</h3><p>실제 마케팅 업무 관람 및 내부 주제 해결 예정</p></article>
-   <article class="activity reveal"><div class="num">05 / STUDENT COUNCIL</div><h3>백석대학교 제1대 스포츠경영전공 학생회</h3><p>홍보국 부원</p></article>
-   <article class="activity reveal"><div class="num">06 / FIELD STAFF</div><h3>스포츠 이벤트 현장 활동</h3><p>동아일보 서울 마라톤 Staff<br>Liv Golf Korea Staff</p></article>
-  </div>
-  <div class="subsection reveal">
-   <div class="subsection-title"><h3>Sports Coaching</h3><span class="small muted">지도 경험</span></div>
-   <div class="coaching"><div><div class="role">WINNERS · SHINCHON</div><h3>위너스 체대입시 신촌점</h3><p>서경대반 1:1 지도 및 코치</p></div><div class="coach-symbol" aria-hidden="true">W</div></div>
-  </div>
- </div>
-</section>
-
-<section id="projects">
- <div class="wrap">
-  <div class="section-head reveal"><div><div class="kicker">Part 03 · Projects</div><h2>Projects &<br>Practice.</h2></div><p>스포츠산업 과제와 구단 연계 프로젝트를 통해 자료 조사, 기획안 제작, 협업 및 결과 발표 과정을 경험했습니다.</p></div>
-  <div class="intro-grid" style="margin-bottom:18px">
-   <a class="info-card reveal" href="incheon.html"><div class="card-no">FEATURED PROJECT 01</div><h3>인천유나이티드 스포츠산업 실무 과정 ↗</h3><p>수료증 · 실무활동인증서 · 최우수상 상장</p></a>
-   <a class="info-card reveal" href="fcseoul.html"><div class="card-no">FEATURED PROJECT 02</div><h3>FC서울 스포츠마케팅 산학협력 프로젝트 ↗</h3><p>홈경기 모객 프로젝트 · 신규 관중 증대 전략 경쟁 PT</p></a>
-  </div>
-  <div class="projects">
-   <article class="project-card reveal">
-    <div class="project-top"><span class="project-index">PROJECT 01</span><span class="small muted">SPORTS INDUSTRY</span></div>
-    <h3>인천유나이티드<br>스포츠산업 실무 과정</h3>
-    <p class="summary">인천유나이티드가 제시한 2가지 과제 중 한 가지를 선정해 팀을 구성하고, 전문가 멘토와 협력하며 과제를 기획하고 해결해 나가는 스포츠산업 실무 과정을 수료했습니다.</p>
-    <ul><li>총 200명이 4개 팀으로 나누어 참여</li><li>중간 제안 발표와 피드백을 통해 기획안 수정·보완</li><li>자료 조사 및 정리, 흑백 PPT 제작 담당</li></ul>
-    <span class="award">인천유나이티드 스포츠산업실무 최우수상</span>
-    <div class="project-reflection"><strong>활동을 통해 배운 점</strong><p>첫 대외활동을 통해 프로젝트 진행 방식과 자료 조사 방법, 기획안을 시각적으로 구성하는 과정을 경험했습니다.</p></div>
-   </article>
-   <article class="project-card reveal">
-    <div class="project-top"><span class="project-index">PROJECT 02</span><span class="small muted">SPORTS MARKETING</span></div>
-    <h3>FC서울<br>스포츠마케팅 산학협력 프로젝트</h3>
-    <p class="summary">FC서울과 연계해 홈경기 모객 프로젝트를 진행하고, 실행 결과를 바탕으로 관중 참여와 홍보 전략을 기획하는 스포츠마케팅 프로젝트입니다.</p>
-    <ul><li>9월 홈경기 및 11월 홈경기 모객 프로젝트</li><li>모객 프로젝트 결과 데이터 비교 및 결과 보고 발표</li><li>대학생 및 외국인 등 신규 관중 증대 전략 경쟁 PT</li></ul>
-    <div class="project-reflection"><strong>담당 역할 · 총괄</strong><p>다양한 홍보 노출만으로 모객이 이루어지는 것은 아니라는 점을 경험했습니다. 사람들의 관심과 참여를 이끄는 요소, 체계적인 운영, 역할 분담과 협업의 중요성을 배웠습니다. 여러 대학의 아이디어를 접하며 새로운 관점과 시각을 넓혔습니다.</p></div>
-   </article>
-  </div>
- </div>
-</section>
-
-<section id="credentials">
- <div class="wrap">
-  <div class="section-head reveal"><div><div class="kicker">Part 04 · Certifications</div><h2>Credentials<br>& Learning.</h2></div><p>보유 자격과 교육·연수 이수 내역.</p></div>
-  <div class="credentials">
-   <article class="credential reveal"><div class="serial">01 / CERTIFICATE</div><h3>알파인 스키 3급</h3><p>대한스키협회</p></article>
-   <article class="credential reveal"><div class="serial">02 / CERTIFICATE</div><h3>마케팅실무능력</h3><p>문화체육관광부</p></article>
-   <article class="credential reveal"><div class="serial">03 / CERTIFICATE</div><h3>스포츠이벤트기획자</h3><p>중소벤처기업</p></article>
-   <article class="credential reveal"><div class="serial">04 / CERTIFICATE</div><h3>골프 Peak 레벨1</h3><p>대한골프협회</p></article>
-   <article class="credential reveal"><div class="serial">05 / CERTIFICATE</div><h3>대한스포츠 테이핑 전문가 2급</h3><p>대한트레이닝 협회</p></article>
-   <article class="credential reveal"><div class="serial">06 / CERTIFICATE</div><h3>정보기술자격 ITQ 단일 등급</h3><p>KPC자격</p></article>
-  </div>
-  <div class="subsection reveal">
-   <div class="subsection-title"><h3>교육·연수 이수</h3><span class="small muted">EDUCATION & TRAINING</span></div>
-   <div class="education-list">
-    <article class="education-item"><h3>마케팅실무능력 & 스포츠이벤트기획자</h3><p>4개월 스포츠산업 실무 과제 수료</p></article>
-    <article class="education-item"><h3>대한스포츠 테이핑 전문가 2급</h3><p>키네시오 테이핑 연수 수료</p></article>
-    <article class="education-item"><h3>알파인 스키 3급</h3><p>2박 3일 실기 평가 후 수료</p></article>
-   </div>
-  </div>
- </div>
-</section>
-
-<section id="skills">
- <div class="wrap">
-  <div class="section-head reveal"><div><div class="kicker">Part 05 · Skills</div><h2>Tools &<br>Capabilities.</h2></div><p>DESIGN · DOCUMENT · VIDEO · SPORTS ANALYSIS</p></div>
-  <div class="skills-grid">
-   <article class="skill-card reveal"><div class="skill-icon">01</div><h3>Design & Document</h3><p>Canva · 미리캔버스 · PowerPoint · Word · 한글</p><p class="muted" style="margin-top:10px">시각 자료 제작, 발표 자료 구성, 문서 작성</p><div class="levels"><span>PPT · 상</span><span>Word · 상</span><span>한글 · 상</span></div></article>
-   <article class="skill-card reveal"><div class="skill-icon">02</div><h3>Video</h3><p>블로(VLLO) · CapCut(캡컷)</p><p class="muted" style="margin-top:10px">영상 편집 및 콘텐츠 제작</p></article>
-   <article class="skill-card reveal"><div class="skill-icon">03</div><h3>Sports Analysis</h3><p>키네마틱 동작 분석</p><p class="muted" style="margin-top:10px">스포츠 동작 관찰 및 분석</p></article>
-  </div>
- </div>
-</section>
-
-<section id="contact">
- <div class="wrap">
-  <div class="contact-panel reveal">
-   <div><div class="kicker">Thank you for your time</div><h2>Let’s connect.</h2><p>장애슬<br>서경대학교 스포츠앤테크놀로지전공</p><div class="small muted">스포츠산업 꿈나무 장애슬</div></div>
-   <div class="contact-list">
-    <div class="contact-item"><span>PHONE</span><a href="tel:01049183439">010-4918-3439</a></div>
-    <div class="contact-item"><span>EMAIL</span><a href="mailto:aeseul0907@naver.com">aeseul0907@naver.com</a></div>
-    <div class="contact-item"><span>INSTAGRAM</span><a href="https://www.instagram.com/lueseaea/" target="_blank" rel="noopener noreferrer">@lueseaea ↗</a></div>
-   </div>
-  </div>
- </div>
-</section>
-</main>
-<footer><div class="wrap footer-inner"><span>JANG AE SEUL · SPORTS INDUSTRY PORTFOLIO</span><span>SEOKYEONG UNIVERSITY · SPORTS & TECHNOLOGY</span><a class="back-top" href="#home">BACK TO TOP ↑</a></div></footer>
-<script>
-(() => {
-  const progress = document.getElementById('progress');
-  const menuBtn = document.getElementById('menuBtn');
-  const navLinks = document.getElementById('navLinks');
-  const links = [...document.querySelectorAll('.nav-links a')];
-  const sections = [...document.querySelectorAll('main section[id]')];
-
-  const updateProgress = () => {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    progress.style.width = (scrollable > 0 ? window.scrollY / scrollable * 100 : 0) + '%';
-  };
-  window.addEventListener('scroll', updateProgress, {passive:true});
-  updateProgress();
-
-  menuBtn.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.textContent = open ? 'CLOSE −' : 'MENU +';
-  });
-  links.forEach(link => link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    menuBtn.textContent = 'MENU +';
-  }));
-
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          if (navLinks) navLinks.classList.remove('open');
+        });
       });
-    }, {threshold:0.12});
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
-        }
+      // 2. 마우스 은은한 글로우 따라다니기
+      const mouseGlow = document.getElementById('mouseGlow');
+      window.addEventListener('mousemove', (e) => {
+        mouseGlow.style.left = `${e.clientX}px`;
+        mouseGlow.style.top = `${e.clientY}px`;
+      }, { passive: true });
+
+      // 3. Intersection Observer 스크롤 애니메이션
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -60px 0px',
+        threshold: 0.1
+      };
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-unfold, .reveal-zoom, .reveal-slide-up').forEach(el => revealObserver.observe(el));
+
+      // 4. PART 03. 카테고리 필터 기능
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const activities = document.querySelectorAll('.activity');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filterValue = btn.getAttribute('data-filter');
+
+          activities.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+              item.classList.remove('hidden');
+            } else {
+              item.classList.add('hidden');
+            }
+          });
+        });
       });
-    }, {rootMargin:'-25% 0px -60% 0px', threshold:0});
-    sections.forEach(section => sectionObserver.observe(section));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-  }
-})();
-</script>
+
+      // 5. 스크롤 활성 헤더 네비게이션
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          siteHeader.classList.add('scrolled');
+        } else {
+          siteHeader.classList.remove('scrolled');
+        }
+
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 140;
+          const sectionHeight = section.clientHeight;
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        links.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      }, { passive: true });
+    });
+  </script>
 </body>
 </html>
