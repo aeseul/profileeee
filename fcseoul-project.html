@@ -87,8 +87,18 @@
       min-width: 0;
       margin: 0;
     }
-    .media img { display: block; width: 100%; height: auto; max-height: 360px; object-fit: contain; background: #090d14; }
+    .media a { display: block; }
+    .media img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 440px;
+      object-fit: contain;
+      background: #090d14;
+    }
     .media figcaption { padding: 10px 12px; color: #dbe4f2; font-size: 11px; border-top: 1px solid var(--line); }
+    .image-error { display: none; padding: 18px; color: #ffb4b4; font-size: 12px; }
+    .image-error.visible { display: block; }
     ul { padding-left: 20px; margin: 10px 0; }
     li { margin: 7px 0; }
     footer { border-top: 1px solid var(--line); padding: 24px 0; color: #68758b; font-size: 10px; letter-spacing: .1em; }
@@ -126,19 +136,29 @@
     <section class="panel">
       <h2>프로젝트 자료</h2>
       <div class="grid">
-        <!-- 1. FC서울 활동 포스터 -->
         <figure class="media">
-          <a href="./FC서울.jpg" target="_blank" rel="noopener">
-            <img src="./FC%EC%84%9C%EC%9A%B8.jpg" alt="FC서울 산학협력 프로젝트 활동 포스터" loading="lazy" onerror="this.onerror=null; this.src='./FC서울.jpg';">
+          <a href="./fcseoul-logo.jpeg" target="_blank" rel="noopener">
+            <img src="./fcseoul-logo.jpeg" alt="FC서울 구단 엠블럼" loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.nextElementSibling.classList.add('visible');">
           </a>
-          <figcaption>FC서울 활동 포스터 · FC서울.jpg</figcaption>
+          <div class="image-error">이미지를 불러오지 못했습니다. GitHub 저장소에 <code>fcseoul-logo.jpeg</code> 파일이 있는지 확인해 주세요.</div>
+          <figcaption>fcseoul-logo.jpeg</figcaption>
         </figure>
-        <!-- 2. FC서울 단체사진 -->
         <figure class="media">
-          <a href="./FC서울단체.jpeg" target="_blank" rel="noopener">
-            <img src="./FC%EC%84%9C%EC%9A%B8%EB%8B%A8%EC%B2%B4.jpeg" alt="FC서울 산학협력 프로젝트 단체 사진" loading="lazy" onerror="this.onerror=null; this.src='./FC서울단체.jpeg';">
+          <a href="./fcseoul-poster.jpg" target="_blank" rel="noopener">
+            <img src="./fcseoul-poster.jpg" alt="FC서울 캠퍼스랩 참가 모집 포스터" loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.nextElementSibling.classList.add('visible');">
           </a>
-          <figcaption>FC서울 프로젝트 단체사진 · FC서울단체.jpeg</figcaption>
+          <div class="image-error">이미지를 불러오지 못했습니다. GitHub 저장소에 <code>fcseoul-poster.jpg</code> 파일이 있는지 확인해 주세요.</div>
+          <figcaption>fcseoul-poster.jpg</figcaption>
+        </figure>
+        <figure class="media">
+          <a href="./fcseoul-team.jpeg" target="_blank" rel="noopener">
+            <img src="./fcseoul-team.jpeg" alt="FC서울 산학협력 프로젝트 단체 사진" loading="lazy"
+                 onerror="this.style.display='none'; this.parentElement.nextElementSibling.classList.add('visible');">
+          </a>
+          <div class="image-error">이미지를 불러오지 못했습니다. GitHub 저장소에 <code>fcseoul-team.jpeg</code> 파일이 있는지 확인해 주세요.</div>
+          <figcaption>fcseoul-team.jpeg</figcaption>
         </figure>
       </div>
     </section>
